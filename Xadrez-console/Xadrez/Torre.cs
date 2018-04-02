@@ -27,17 +27,6 @@ namespace Xadrez_console.Xadrez
             Posicao pos = new Posicao(0, 0);
 
             //ACIMA
-            pos.definirValores(pos.linha - 1, pos.coluna);
-            while (tab.posicaoValida(pos) && podeMover(pos))
-            {
-                mat[pos.linha, pos.coluna] = true;
-                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
-                    break;
-                }
-                pos.linha = pos.linha - 1;
-            }
-            //ABAIXO
             pos.definirValores(pos.linha + 1, pos.coluna);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -46,10 +35,10 @@ namespace Xadrez_console.Xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha + 1;
+                pos.linha++;
             }
-            //DIREITA
-            pos.definirValores(pos.linha, pos.coluna + 1);
+            //ABAIXO
+            pos.definirValores(pos.linha - 1, pos.coluna);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -57,9 +46,9 @@ namespace Xadrez_console.Xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna + 1;
+                pos.linha--;
             }
-            //ESQUERDA
+            //DIREITA
             pos.definirValores(pos.linha, pos.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -68,11 +57,20 @@ namespace Xadrez_console.Xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna - 1;
+                pos.coluna--;
             }
-
+            //ESQUERDA
+            pos.definirValores(pos.linha, pos.coluna + 1);
+            while (tab.posicaoValida(pos) && podeMover(pos))
+            {
+                mat[pos.linha, pos.coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
+                    break;
+                }
+                pos.coluna++;
+            }
             return mat;
-
         }
     }
 }

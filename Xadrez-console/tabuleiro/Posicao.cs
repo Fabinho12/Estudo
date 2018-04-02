@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Xadrez_console.tabuleiro
+﻿namespace Xadrez_console.tabuleiro
 {
     class Posicao
     {

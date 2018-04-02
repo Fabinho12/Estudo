@@ -14,7 +14,6 @@ namespace Xadrez_console.Xadrez
         {
             return "R";
         }
-
         private bool podeMover(Posicao pos)
         {
             Peca p = tab.peca(pos);
@@ -64,7 +63,7 @@ namespace Xadrez_console.Xadrez
                 mat[pos.linha, pos.coluna] = true;
             }
             //ESQUERDA
-            pos.definirValores(posicao.linha, posicao.coluna + 1);
+            pos.definirValores(posicao.linha, posicao.coluna - 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
