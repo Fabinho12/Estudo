@@ -48,7 +48,7 @@ namespace Xadrez_console.Xadrez
                 }
                 pos.definirValores(pos.linha -1, pos.coluna);
             }
-            //DIREITA
+            //ESQUERDA
             pos.definirValores(pos.linha, pos.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -59,7 +59,7 @@ namespace Xadrez_console.Xadrez
                 }
                 pos.definirValores(pos.linha, pos.coluna -1);
             }
-            //ESQUERDA
+            //DIREITA
             pos.definirValores(pos.linha, pos.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
